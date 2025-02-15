@@ -5,11 +5,11 @@ function LocalRoot()
    return(LocalPlayer.Character.HumanoidRootPart)
 end
 
-function ANTI_BANG(AB_bool)
+function ANTI_BANG(AB_bool, AB_side)
    if AB_bool then
       local destroyHeight = game.Workspace.FallenPartsDestroyHeight
       originalPos = LocalRoot().CFrame
-      LocalRoot().CFrame = CFrame.new(10^4, destroyHeight+1, 10^4) * CFrame.fromEulerAngles(math.rad(ABDegree), 0, 0)
+      LocalRoot().CFrame = CFrame.new(10^4, destroyHeight+1, 10^4) * CFrame.fromEulerAngles(math.rad(AB_side), 0, 0)
       task.wait(0.05) LocalRoot().Anchored = true
    elseif originalPos ~= nil then
       LocalRoot().Anchored = false
@@ -105,7 +105,33 @@ local ABtoggle = ToolTab:CreateToggle({
    CurrentValue = false,
    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(ABBool)
-      ANTI_BANG(ABBool)
+      ANTI_BANG(ABBool, ABDegree)
+   end,
+})
+
+local Keybind = ToolTab:CreateKeybind({
+   Name = "AntiBang keybind",
+   CurrentKeybind = "F",
+   HoldToInteract = true,
+   Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(ABKeybind)
+   ANTI_BANG(true, ABDegree)
+   end,
+})
+
+local SKeybind = ToolTab:CreateKeybind({
+   Name = "AntiBang switch side keybind",
+   CurrentKeybind = "G",
+   HoldToInteract = false,
+   Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(ABSKeybind)
+      if ABDegree then
+         FaceDownToggle:Set(false)
+         ABDegree = 90
+      else
+         FaceDownToggle:Set(true)
+         ABDegree = -90
+      end
    end,
 })
 
