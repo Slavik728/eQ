@@ -1,1 +1,1 @@
--- epik's shitty script pissed me off so now im making my own mm2 but not now cuz i gotta take a shit
+-- epik's shitty script pissed me off so now im making my own mm2 but not now cuz im streaming
