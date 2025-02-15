@@ -116,9 +116,13 @@ local Keybind = ToolTab:CreateKeybind({
    Flag = "Keybind1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
    Callback = function(ABKeybind)
       if ABKeybind then
-         ANTI_BANG(true, ABDegree)
+         local destroyHeight = game.Workspace.FallenPartsDestroyHeight
+         originalPos = LocalRoot().CFrame
+         LocalRoot().CFrame = CFrame.new(10^4, destroyHeight+1, 10^4) * CFrame.fromEulerAngles(math.rad(ABDegree), 0, 0)
+         task.wait(0.05) LocalRoot().Anchored = true
       else
-         ANTI_BANG(false, ABDegree)
+         LocalRoot().CFrame = originalPos
+         LocalRoot().Anchored = false
       end
    end,
 })
