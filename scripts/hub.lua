@@ -121,8 +121,8 @@ local Keybind = ToolTab:CreateKeybind({
          LocalRoot().CFrame = CFrame.new(10^4, destroyHeight+1, 10^4) * CFrame.fromEulerAngles(math.rad(ABDegree), 0, 0)
          task.wait(0.05) LocalRoot().Anchored = true
       else
-         LocalRoot().CFrame = originalPos
          LocalRoot().Anchored = false
+         LocalRoot().CFrame = originalPos
       end
    end,
 })
