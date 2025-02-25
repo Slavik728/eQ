@@ -108,7 +108,7 @@ local ABtoggle = ToolTab:CreateToggle({
       ANTI_BANG(ABBool, ABDegree)
    end,
 })
-
+--[[
 local Keybind = ToolTab:CreateKeybind({
    Name = "AntiBang keybind",
    CurrentKeybind = "F",
@@ -142,7 +142,7 @@ local SKeybind = ToolTab:CreateKeybind({
       end
    end,
 })
-
+]]
 local StrollerBanish = ToolTab:CreateButton({
    Name = "Stroller Banish(get someone first)",
    Callback = function()
