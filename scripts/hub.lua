@@ -155,8 +155,16 @@ local StrollerBanish = ToolTab:CreateButton({
    end,
 })
 
-local ssTab = Window:CreateTab("Games", 'gamepad-2')
+if game.GameId == 3097398008 then idk = 'Microscripts(!)' else idk = 'Microscripts' end
+local ssTab = Window:CreateTab(idk, 'gamepad-2')
 
-local sseLabel = ssTab:CreateLabel("Click the search button on top in this tab to search for a specific game", 'info', Color3.fromRGB(0, 50, 0), false) -- Title, Icon, Color, IgnoreTheme
-
-local scp3199sec = ssTab:CreateSection("SCP: 3199 Demonstration")
+local sseLabel = ssTab:CreateLabel("<s>Click the search button on top in this tab to search for a specific game</s>\nThis is currently automatic.", 'info', Color3.fromRGB(0, 50, 0), false) -- Title, Icon, Color, IgnoreTheme
+if game.GameId == 3097398008 then
+   local tgbsec = ssTab:CreateSection("The Glass Bridge")
+   local one = ssTab:CreateButton({
+   Name = "See correct glass",
+   Callback = function()
+        loadstring(game:HttpGet("https://github.com/Slavik728/eQ/raw/refs/heads/main/scripts/micro/3097398008.lua"))()
+   end,
+})
+end
