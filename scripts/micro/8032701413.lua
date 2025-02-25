@@ -15,7 +15,7 @@ Window:Toggle({
             end
             local function onGlassReset(c)
                 if c:IsA('Model') and c.Name == 'GlassBridges' then
-                    task.wait(4)
+                    task.wait(10)
                     for i, g in pairs(grs.GlassBridges:WaitForChild('CorrectGlass'):GetChildren()) do
                         g.Transparency = .7
                     end
